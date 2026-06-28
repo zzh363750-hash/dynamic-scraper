@@ -1,0 +1,11 @@
+{
+  "ds_demo_free_key_12345": {
+    "plan": "free",
+    "created": "2026-06-28T16:39:30.767674",
+    "note": "Demo key for testing"
+  },
+  "ds_580768fc10498d4cf4d4153a1933424ba859395e": {
+    "plan": "free",
+    "created": "2026-06-28T16:39:33.602117"
+  }
+}

@@ -90,3 +90,62 @@ python3 "$SCRIPT" "https://example.com" --chrome
 ## 📄 License
 
 [MIT](LICENSE)
+
+## 🚀 API 服务部署
+
+### 本地运行
+
+```bash
+cd api
+pip install -r requirements.txt
+uvicorn main:app --host 0.0.0.0 --port 8000
+```
+
+访问 http://localhost:8000 查看文档和定价页面。
+
+### Docker 部署
+
+```bash
+cd api
+docker-compose up -d
+```
+
+### 云服务部署
+
+推荐平台：
+- [Railway](https://railway.app) — 免费额度，一键部署
+- [Render](https://render.com) — 免费 tier
+- [Fly.io](https://fly.io) — 免费额度
+
+```bash
+# Railway 示例
+railway init
+railway up
+```
+
+### API 使用
+
+```bash
+# 1. 获取 API Key
+curl -X POST https://your-domain.com/api/keys \
+  -H "Content-Type: application/json" \
+  -d '{"plan": "free"}'
+
+# 2. 调用爬虫 API
+curl -X POST https://your-domain.com/api/scrape \
+  -H "Content-Type: application/json" \
+  -H "X-API-Key: your-key-here" \
+  -d '{"url": "https://mp.weixin.qq.com/s/xxx"}'
+
+# 3. 查看用量
+curl https://your-domain.com/api/usage \
+  -H "X-API-Key: your-key-here"
+```
+
+### 套餐定价
+
+| 套餐 | 价格 | 限额 |
+|------|------|------|
+| Free | ¥0 | 10 次/天 |
+| Basic | ¥9.9/月 | 1,000 次/月 |
+| Pro | ¥49/月 | 无限次 |
